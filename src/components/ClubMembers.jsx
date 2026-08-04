@@ -5,7 +5,7 @@ import { Code, Briefcase, Mail } from 'lucide-react';
 const members = [
   {
     role: "President / Lead Student Coordinator",
-    name: "Naren",
+    name: "Alex Mercer",
     designation: "4th Year, IT",
     image: "https://ui-avatars.com/api/?name=Alex+Mercer&background=0B0F19&color=00F0FF&size=200",
   },
