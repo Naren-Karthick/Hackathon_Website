@@ -12,7 +12,10 @@ const RegistrationForm = () => {
     college: '',
     domain: '',
     problemStatement: '',
-    teamSize: '1'
+    teamSize: '1',
+    member2: '',
+    member3: '',
+    member4: ''
   };
 
   const [formData, setFormData] = useState(initialFormState);
@@ -179,7 +182,7 @@ const RegistrationForm = () => {
                 value={formData.college}
                 onChange={handleChange}
                 className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:neon-border transition-colors"
-                placeholder="Sri Muthukumaran Institute of Technology"
+                placeholder="e.g. Sri Muthukumaran Institute of Technology"
               />
             </div>
 
@@ -244,6 +247,32 @@ const RegistrationForm = () => {
                 ))}
               </div>
             </div>
+
+            {/* Dynamic Team Member Inputs */}
+            {parseInt(formData.teamSize) > 1 && (
+              <div className="space-y-4 pt-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {Array.from({ length: parseInt(formData.teamSize) - 1 }).map((_, idx) => {
+                    const memberNum = idx + 2;
+                    const fieldName = `member${memberNum}`;
+                    return (
+                      <div key={fieldName} className="space-y-2">
+                        <label className="text-sm font-medium text-gray-300">Member {memberNum} Name *</label>
+                        <input 
+                          required
+                          type="text" 
+                          name={fieldName}
+                          value={formData[fieldName]}
+                          onChange={handleChange}
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:neon-border transition-colors"
+                          placeholder={`Member ${memberNum} Full Name`}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
 
             <div className="pt-6">
               <button 
