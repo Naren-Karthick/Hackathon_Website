@@ -12,8 +12,7 @@ const RegistrationForm = () => {
     college: 'Sri Muthukumaran Institute of Technology',
     domain: '',
     problemStatement: '',
-    teamSize: '1',
-    githubUrl: ''
+    teamSize: '1'
   };
 
   const [formData, setFormData] = useState(initialFormState);
@@ -225,38 +224,23 @@ const RegistrationForm = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Team Size */}
-              <div className="space-y-3">
-                <label className="text-sm font-medium text-gray-300">Team Size *</label>
-                <div className="flex space-x-4">
-                  {[1, 2, 3, 4].map(size => (
-                    <label key={size} className="flex items-center space-x-2 cursor-pointer">
-                      <input 
-                        type="radio" 
-                        name="teamSize" 
-                        value={size.toString()}
-                        checked={formData.teamSize === size.toString()}
-                        onChange={handleChange}
-                        className="w-4 h-4 text-cyan bg-obsidian border-gray-600 focus:ring-cyan focus:ring-2"
-                      />
-                      <span className="text-gray-300">{size}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              {/* GitHub / Portfolio */}
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-300">GitHub / Project Portfolio URL</label>
-                <input 
-                  type="url" 
-                  name="githubUrl"
-                  value={formData.githubUrl}
-                  onChange={handleChange}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:neon-border transition-colors"
-                  placeholder="https://github.com/your-profile"
-                />
+            {/* Team Size */}
+            <div className="space-y-3">
+              <label className="text-sm font-medium text-gray-300">Team Size *</label>
+              <div className="flex space-x-4">
+                {[1, 2, 3, 4].map(size => (
+                  <label key={size} className="flex items-center space-x-2 cursor-pointer">
+                    <input 
+                      type="radio" 
+                      name="teamSize" 
+                      value={size.toString()}
+                      checked={formData.teamSize === size.toString()}
+                      onChange={handleChange}
+                      className="w-4 h-4 text-cyan bg-obsidian border-gray-600 focus:ring-cyan focus:ring-2"
+                    />
+                    <span className="text-gray-300">{size}</span>
+                  </label>
+                ))}
               </div>
             </div>
 
