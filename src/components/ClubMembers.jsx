@@ -38,12 +38,6 @@ const members = [
     name: "Dr. K. Ramasamy",
     designation: "Department of IT",
     image: "https://ui-avatars.com/api/?name=Dr+K+Ramasamy&background=0B0F19&color=8A2BE2&size=200",
-  },
-  {
-    role: "Staff Coordinator / Faculty Advisor",
-    name: "Dr. K. Ramasamy",
-    designation: "Department of IT",
-    image: "https://ui-avatars.com/api/?name=Dr+K+Ramasamy&background=0B0F19&color=8A2BE2&size=200",
   }
 ];
 
