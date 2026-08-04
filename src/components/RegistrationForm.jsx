@@ -9,7 +9,7 @@ const RegistrationForm = () => {
     leaderName: '',
     leaderEmail: '',
     leaderPhone: '',
-    college: 'Sri Muthukumaran Institute of Technology',
+    college: '',
     domain: '',
     problemStatement: '',
     teamSize: '1'
@@ -164,7 +164,7 @@ const RegistrationForm = () => {
                   value={formData.leaderPhone}
                   onChange={handleChange}
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:neon-border transition-colors"
-                  placeholder="+91 9876543210"
+                  placeholder="9952971033"
                 />
               </div>
             </div>
@@ -179,6 +179,7 @@ const RegistrationForm = () => {
                 value={formData.college}
                 onChange={handleChange}
                 className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:neon-border transition-colors"
+                placeholder="Sri Muthukumaran Institute of Technology"
               />
             </div>
 
