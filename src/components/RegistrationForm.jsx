@@ -22,6 +22,7 @@ const RegistrationForm = () => {
   const [formData, setFormData] = useState(initialFormState);
   const [availableProblems, setAvailableProblems] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [paymentScreenshot, setPaymentScreenshot] = useState(null);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -64,11 +65,49 @@ const RegistrationForm = () => {
       return;
     }
 
+    // Upload Screenshot to ImgBB
+    let screenshotUrl = "";
+    if (paymentScreenshot) {
+      const imgbbKey = import.meta.env.VITE_IMGBB_API_KEY;
+      if (!imgbbKey) {
+        alert("Registration failed: ImgBB API key is missing. Please add VITE_IMGBB_API_KEY to your .env file.");
+        setIsSubmitting(false);
+        return;
+      }
+      
+      try {
+        const imgData = new FormData();
+        imgData.append('image', paymentScreenshot);
+        
+        const imgResponse = await fetch(`https://api.imgbb.com/1/upload?key=${imgbbKey}`, {
+          method: 'POST',
+          body: imgData
+        });
+        
+        const imgResult = await imgResponse.json();
+        if (imgResult.success) {
+          screenshotUrl = imgResult.data.url;
+        } else {
+          throw new Error("ImgBB upload failed");
+        }
+      } catch (err) {
+        console.error("Screenshot upload error:", err);
+        alert("Failed to upload screenshot. Please try again.");
+        setIsSubmitting(false);
+        return;
+      }
+    } else {
+      alert("Please upload a payment screenshot.");
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       // Use URLSearchParams to send data as application/x-www-form-urlencoded
       // This is the most reliable format for Google Apps Script
       const data = new URLSearchParams();
       Object.keys(formData).forEach(key => data.append(key, formData[key]));
+      data.append('screenshotUrl', screenshotUrl);
       data.append('timestamp', new Date().toLocaleString());
 
       const response = await fetch(scriptUrl, {
@@ -81,6 +120,7 @@ const RegistrationForm = () => {
       // If the fetch doesn't throw a network error, we assume it succeeded.
       setIsSubmitted(true);
       setFormData(initialFormState);
+      setPaymentScreenshot(null);
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);
@@ -308,6 +348,16 @@ const RegistrationForm = () => {
                       maxLength={12}
                       className="w-full bg-obsidian border border-cyan/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:neon-border transition-colors placeholder:text-gray-600"
                       placeholder="e.g. 325412345678 (12 digits)"
+                    />
+                  </div>
+                  <div className="space-y-2 text-left pt-2">
+                    <label className="text-sm font-medium text-purple">Payment Screenshot *</label>
+                    <input 
+                      required
+                      type="file" 
+                      accept="image/*"
+                      onChange={(e) => setPaymentScreenshot(e.target.files[0])}
+                      className="w-full text-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-cyan/20 file:text-cyan hover:file:bg-cyan/30 cursor-pointer"
                     />
                   </div>
                 </div>
