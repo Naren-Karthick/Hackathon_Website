@@ -1,7 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Briefcase, Mail } from 'lucide-react';
-
 const members = [
   {
     role: "President / Lead Student Coordinator",
@@ -72,20 +70,7 @@ const ClubMembers = () => {
               </div>
 
               <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
-              <p className="text-cyan text-sm font-medium mb-2">{member.role}</p>
               <p className="text-gray-400 text-xs mb-6">{member.designation}</p>
-
-              <div className="flex space-x-4 mt-auto">
-                <a href="#" className="text-gray-400 hover:text-cyan transition-colors">
-                  <Code className="w-5 h-5" />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-purple transition-colors">
-                  <Briefcase className="w-5 h-5" />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-cyan transition-colors">
-                  <Mail className="w-5 h-5" />
-                </a>
-              </div>
             </motion.div>
           ))}
         </div>
