@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { domainsData } from '../DomainsData';
-import { CheckCircle2, ChevronDown } from 'lucide-react';
+import { CheckCircle2, ChevronDown, QrCode } from 'lucide-react';
 
 const RegistrationForm = () => {
   const initialFormState = {
@@ -15,7 +15,8 @@ const RegistrationForm = () => {
     teamSize: '1',
     member2: '',
     member3: '',
-    member4: ''
+    member4: '',
+    transactionId: ''
   };
 
   const [formData, setFormData] = useState(initialFormState);
@@ -46,6 +47,13 @@ const RegistrationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    // UPI UTR validation (12 digits)
+    if (!/^\d{12}$/.test(formData.transactionId)) {
+      alert("Please enter a valid 12-digit UPI Transaction / UTR Number.");
+      setIsSubmitting(false);
+      return;
+    }
     
     // Check if the Google Script URL is provided in .env
     const scriptUrl = import.meta.env.VITE_GOOGLE_SHEETS_URL;
@@ -273,6 +281,38 @@ const RegistrationForm = () => {
                 </div>
               </div>
             )}
+
+            {/* Payment Section */}
+            <div className="mt-8 p-6 bg-cyan/5 border border-cyan/20 rounded-xl">
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="bg-white p-2 rounded-xl flex-shrink-0">
+                  <img 
+                    src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=itronix@upi&pn=ITronixClub&am=150.00&cu=INR" 
+                    alt="UPI QR Code" 
+                    className="w-32 h-32 object-contain"
+                  />
+                </div>
+                <div className="flex-1 space-y-4 text-center md:text-left w-full">
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-1">Registration Fee: ₹150</h3>
+                    <p className="text-sm text-gray-400">Scan to pay via any UPI app. The fee is per team.</p>
+                  </div>
+                  <div className="space-y-2 text-left">
+                    <label className="text-sm font-medium text-cyan">UPI Transaction / UTR Number *</label>
+                    <input 
+                      required
+                      type="text" 
+                      name="transactionId"
+                      value={formData.transactionId}
+                      onChange={handleChange}
+                      maxLength={12}
+                      className="w-full bg-obsidian border border-cyan/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:neon-border transition-colors placeholder:text-gray-600"
+                      placeholder="e.g. 325412345678 (12 digits)"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div className="pt-6">
               <button 
