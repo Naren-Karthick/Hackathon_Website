@@ -12,10 +12,12 @@ const RegistrationForm = () => {
     college: '',
     domain: '',
     problemStatement: '',
-    teamSize: '1',
+    teamSize: '3',
     member2: '',
     member3: '',
     member4: '',
+    member5: '',
+    member6: '',
     transactionId: ''
   };
 
@@ -138,7 +140,7 @@ const RegistrationForm = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">Join the <span className="neon-text">Battle</span></h2>
-          <p className="text-gray-400">Register your team for IHackTronix '26. Spots are limited!</p>
+          <p className="text-gray-400">Register your team for IHackX. Spots are limited!</p>
         </div>
 
         <motion.div 
@@ -146,18 +148,18 @@ const RegistrationForm = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="glass-card p-8 sm:p-10 relative overflow-hidden"
+          className="glass-card p-8 sm:p-10 relative overflow-hidden backdrop-blur-2xl bg-white/5 border border-white/10"
         >
           {/* Success Overlay */}
           {isSubmitted && (
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="absolute inset-0 z-10 bg-obsidian/90 backdrop-blur-sm flex flex-col items-center justify-center rounded-2xl"
+              className="absolute inset-0 z-10 bg-obsidian/90 backdrop-blur-md flex flex-col items-center justify-center rounded-2xl"
             >
-              <CheckCircle2 className="w-20 h-20 text-cyan mb-4" />
+              <CheckCircle2 className="w-20 h-20 text-cyan mb-4 drop-shadow-[0_0_15px_rgba(0,240,255,0.5)]" />
               <h3 className="text-3xl font-bold text-white mb-2">Registration Successful!</h3>
-              <p className="text-gray-300">Your team has been registered for IHackTronix '26.</p>
+              <p className="text-gray-300">Your team has been registered for IHackX.</p>
             </motion.div>
           )}
 
@@ -280,7 +282,7 @@ const RegistrationForm = () => {
             <div className="space-y-3">
               <label className="text-sm font-medium text-gray-300">Team Size *</label>
               <div className="flex space-x-4">
-                {[1, 2, 3, 4].map(size => (
+                {[3, 4, 5, 6].map(size => (
                   <label key={size} className="flex items-center space-x-2 cursor-pointer">
                     <input 
                       type="radio" 
@@ -334,8 +336,8 @@ const RegistrationForm = () => {
                 </div>
                 <div className="flex-1 space-y-4 text-center md:text-left w-full">
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-1">Registration Fee: ₹150</h3>
-                    <p className="text-sm text-gray-400">Scan to pay via any UPI app. The fee is per team.</p>
+                    <h3 className="text-xl font-bold text-white mb-1">Total Fee: ₹{parseInt(formData.teamSize) * 150}</h3>
+                    <p className="text-sm text-gray-400">Scan to pay via any UPI app. (₹150 per person)</p>
                   </div>
                   <div className="space-y-2 text-left">
                     <label className="text-sm font-medium text-cyan">UPI Transaction / UTR Number *</label>

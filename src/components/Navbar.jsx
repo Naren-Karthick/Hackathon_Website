@@ -32,8 +32,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'glass py-3' : 'bg-transparent py-5'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="fixed w-full z-50 px-4 sm:px-6 lg:px-8 mt-4">
+      <nav className={`mx-auto max-w-7xl rounded-full transition-all duration-300 ${isScrolled ? 'glass py-3 px-6' : 'bg-transparent py-3 px-6 border border-transparent'}`}>
         <div className="flex items-center justify-between">
           <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer" onClick={(e) => scrollToSection(e, '#home')}>
             <Terminal className="text-cyan w-8 h-8" />
@@ -101,7 +101,8 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-    </nav>
+      </nav>
+    </div>
   );
 };
 

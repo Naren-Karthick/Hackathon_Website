@@ -116,12 +116,15 @@ const ClubMembers = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card p-6 flex flex-col items-center text-center group hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+              className="glass-card p-6 flex flex-col items-center text-center group hover:-translate-y-4 hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all duration-500 relative overflow-hidden backdrop-blur-3xl bg-white/5 border border-white/10"
             >
               {/* Decorative border top */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan to-purple opacity-50 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan to-purple opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              {/* Glowing Aura */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-cyan/20 rounded-full blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
 
-              <div className="w-24 h-24 mb-6 rounded-full p-1 bg-gradient-to-tr from-cyan to-purple">
+              <div className="w-24 h-24 mb-6 rounded-full p-1 bg-gradient-to-tr from-cyan to-purple group-hover:scale-110 transition-transform duration-500">
                 <img
                   src={member.image}
                   alt={member.name}

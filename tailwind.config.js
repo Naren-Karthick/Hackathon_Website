@@ -12,7 +12,7 @@ export default {
         purple: '#8A2BE2',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Outfit', 'sans-serif'],
       },
     },
   },
