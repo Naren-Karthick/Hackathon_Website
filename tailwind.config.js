@@ -7,9 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        obsidian: '#0B0F19',
-        cyan: '#00F0FF',
-        purple: '#8A2BE2',
+        background: '#F8FAFC',
+        surface: '#FFFFFF',
+        primary: '#2563EB',
+        accent: '#8B5CF6',
+        textMain: '#0F172A',
+        textMuted: '#475569',
       },
       fontFamily: {
         sans: ['Outfit', 'sans-serif'],

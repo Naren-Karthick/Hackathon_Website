@@ -101,11 +101,11 @@ const members = [
 
 const ClubMembers = () => {
   return (
-    <section id="members" className="py-20 relative bg-obsidian/50">
+    <section id="members" className="py-20 relative bg-white/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Meet Team <span className="neon-text">ITronix</span></h2>
-          <p className="text-gray-400 text-lg">Student Organizers & Core Committee</p>
+          <h2 className="text-4xl font-bold mb-4">Meet Team <span className="gradient-text">ITronix</span></h2>
+          <p className="text-slate-500 text-lg">Student Organizers & Core Committee</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -116,24 +116,24 @@ const ClubMembers = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card p-6 flex flex-col items-center text-center group hover:-translate-y-4 hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all duration-500 relative overflow-hidden backdrop-blur-3xl bg-white/5 border border-white/10"
+              className="glass-card clean-border p-6 flex flex-col items-center text-center group hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 relative overflow-hidden backdrop-blur-3xl bg-white/70"
             >
               {/* Decorative border top */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan to-purple opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               {/* Glowing Aura */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-cyan/20 rounded-full blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-blue-300/20 rounded-full blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
 
-              <div className="w-24 h-24 mb-6 rounded-full p-1 bg-gradient-to-tr from-cyan to-purple group-hover:scale-110 transition-transform duration-500">
+              <div className="w-24 h-24 mb-6 rounded-full p-1 bg-gradient-to-tr from-primary to-accent group-hover:scale-110 transition-transform duration-500 shadow-lg">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover rounded-full border-2 border-obsidian"
+                  className="w-full h-full object-cover rounded-full border-2 border-white"
                 />
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
-              <p className="text-gray-400 text-xs mb-6">{member.designation}</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-1">{member.name}</h3>
+              <p className="text-slate-500 text-xs mb-6 font-medium">{member.designation}</p>
             </motion.div>
           ))}
         </div>

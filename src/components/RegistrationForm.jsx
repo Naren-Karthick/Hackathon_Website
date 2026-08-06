@@ -139,8 +139,8 @@ const RegistrationForm = () => {
     <section id="registration" className="py-20 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Join the <span className="neon-text">Battle</span></h2>
-          <p className="text-gray-400">Register your team for IHackX. Spots are limited!</p>
+          <h2 className="text-4xl font-bold mb-4">Join the <span className="gradient-text">Battle</span></h2>
+          <p className="text-textMuted">Register your team for IHackX. Spots are limited!</p>
         </div>
 
         <motion.div 
@@ -148,18 +148,18 @@ const RegistrationForm = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="glass-card p-8 sm:p-10 relative overflow-hidden backdrop-blur-2xl bg-white/5 border border-white/10"
+          className="glass-card clean-border p-8 sm:p-10 relative overflow-hidden backdrop-blur-2xl bg-white/80 border border-slate-200"
         >
           {/* Success Overlay */}
           {isSubmitted && (
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="absolute inset-0 z-10 bg-obsidian/90 backdrop-blur-md flex flex-col items-center justify-center rounded-2xl"
+              className="absolute inset-0 z-10 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center rounded-2xl"
             >
-              <CheckCircle2 className="w-20 h-20 text-cyan mb-4 drop-shadow-[0_0_15px_rgba(0,240,255,0.5)]" />
-              <h3 className="text-3xl font-bold text-white mb-2">Registration Successful!</h3>
-              <p className="text-gray-300">Your team has been registered for IHackX.</p>
+              <CheckCircle2 className="w-20 h-20 text-primary mb-4 drop-shadow-[0_4px_10px_rgba(37,99,235,0.3)]" />
+              <h3 className="text-3xl font-bold text-slate-900 mb-2">Registration Successful!</h3>
+              <p className="text-slate-600">Your team has been registered for IHackX.</p>
             </motion.div>
           )}
 
@@ -167,56 +167,56 @@ const RegistrationForm = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Team Name */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-300">Team Name *</label>
+                <label className="text-sm font-medium text-slate-700">Team Name *</label>
                 <input 
                   required
                   type="text" 
                   name="teamName"
                   value={formData.teamName}
                   onChange={handleChange}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:neon-border transition-colors"
+                  className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-sm"
                   placeholder="e.g. Cyber Ninjas"
                 />
               </div>
 
               {/* Leader Name */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-300">Team Leader Name *</label>
+                <label className="text-sm font-medium text-slate-700">Team Leader Name *</label>
                 <input 
                   required
                   type="text" 
                   name="leaderName"
                   value={formData.leaderName}
                   onChange={handleChange}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:neon-border transition-colors"
+                  className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-sm"
                   placeholder="John Doe"
                 />
               </div>
 
               {/* Leader Email */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-300">Leader Email *</label>
+                <label className="text-sm font-medium text-slate-700">Leader Email *</label>
                 <input 
                   required
                   type="email" 
                   name="leaderEmail"
                   value={formData.leaderEmail}
                   onChange={handleChange}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:neon-border transition-colors"
+                  className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-sm"
                   placeholder="john@example.com"
                 />
               </div>
 
               {/* Leader Phone */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-300">Leader Phone *</label>
+                <label className="text-sm font-medium text-slate-700">Leader Phone *</label>
                 <input 
                   required
                   type="tel" 
                   name="leaderPhone"
                   value={formData.leaderPhone}
                   onChange={handleChange}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:neon-border transition-colors"
+                  className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-sm"
                   placeholder="9952971033"
                 />
               </div>
@@ -224,41 +224,41 @@ const RegistrationForm = () => {
 
             {/* College */}
             <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-300">College Name *</label>
+              <label className="text-sm font-medium text-slate-700">College Name *</label>
               <input 
                 required
                 type="text" 
                 name="college"
                 value={formData.college}
                 onChange={handleChange}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:neon-border transition-colors"
+                className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-sm"
                 placeholder="e.g. Sri Muthukumaran Institute of Technology"
               />
             </div>
 
             {/* Domain & Problem Statement */}
-            <div className="space-y-6 bg-white/5 p-6 rounded-xl border border-white/5">
+            <div className="space-y-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
               <div className="space-y-2">
-                <label className="text-sm font-medium text-cyan">Select Domain *</label>
+                <label className="text-sm font-medium text-primary">Select Domain *</label>
                 <div className="relative">
                   <select
                     required
                     name="domain"
                     value={formData.domain}
                     onChange={handleChange}
-                    className="w-full bg-obsidian border border-white/20 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:neon-border transition-colors cursor-pointer"
+                    className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 appearance-none focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all cursor-pointer shadow-sm"
                   >
                     <option value="" disabled>-- Choose a Domain --</option>
                     {domainsData.map(domain => (
                       <option key={domain.id} value={domain.id}>{domain.name}</option>
                     ))}
                   </select>
-                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium text-purple">Select Problem Statement *</label>
+                <label className="text-sm font-medium text-accent">Select Problem Statement *</label>
                 <div className="relative">
                   <select
                     required
@@ -266,21 +266,21 @@ const RegistrationForm = () => {
                     value={formData.problemStatement}
                     onChange={handleChange}
                     disabled={!formData.domain}
-                    className="w-full bg-obsidian border border-white/20 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:neon-border-purple transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 appearance-none focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
                   >
                     <option value="" disabled>-- Choose a Problem Statement --</option>
                     {availableProblems.map(problem => (
                       <option key={problem.id} value={problem.id}>{problem.title}</option>
                     ))}
                   </select>
-                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                 </div>
               </div>
             </div>
 
             {/* Team Size */}
             <div className="space-y-3">
-              <label className="text-sm font-medium text-gray-300">Team Size *</label>
+              <label className="text-sm font-medium text-slate-700">Team Size *</label>
               <div className="flex space-x-4">
                 {[3, 4, 5, 6].map(size => (
                   <label key={size} className="flex items-center space-x-2 cursor-pointer">
@@ -290,9 +290,9 @@ const RegistrationForm = () => {
                       value={size.toString()}
                       checked={formData.teamSize === size.toString()}
                       onChange={handleChange}
-                      className="w-4 h-4 text-cyan bg-obsidian border-gray-600 focus:ring-cyan focus:ring-2"
+                      className="w-4 h-4 text-primary bg-white border-slate-300 focus:ring-primary focus:ring-2"
                     />
-                    <span className="text-gray-300">{size}</span>
+                    <span className="text-slate-700 font-medium">{size}</span>
                   </label>
                 ))}
               </div>
@@ -307,14 +307,14 @@ const RegistrationForm = () => {
                     const fieldName = `member${memberNum}`;
                     return (
                       <div key={fieldName} className="space-y-2">
-                        <label className="text-sm font-medium text-gray-300">Member {memberNum} Name *</label>
+                        <label className="text-sm font-medium text-slate-700">Member {memberNum} Name *</label>
                         <input 
                           required
                           type="text" 
                           name={fieldName}
                           value={formData[fieldName]}
                           onChange={handleChange}
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:neon-border transition-colors"
+                          className="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-sm"
                           placeholder={`Member ${memberNum} Full Name`}
                         />
                       </div>
@@ -325,9 +325,9 @@ const RegistrationForm = () => {
             )}
 
             {/* Payment Section */}
-            <div className="mt-8 p-6 bg-cyan/5 border border-cyan/20 rounded-xl">
+            <div className="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-xl shadow-sm">
               <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="bg-white p-2 rounded-xl flex-shrink-0">
+                <div className="bg-white p-2 rounded-xl flex-shrink-0 shadow-md">
                   <img 
                     src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=itronix@upi&pn=ITronixClub&am=150.00&cu=INR" 
                     alt="UPI QR Code" 
@@ -336,11 +336,11 @@ const RegistrationForm = () => {
                 </div>
                 <div className="flex-1 space-y-4 text-center md:text-left w-full">
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-1">Total Fee: ₹{parseInt(formData.teamSize) * 150}</h3>
-                    <p className="text-sm text-gray-400">Scan to pay via any UPI app. (₹150 per person)</p>
+                    <h3 className="text-xl font-bold text-slate-900 mb-1">Total Fee: ₹{parseInt(formData.teamSize) * 150}</h3>
+                    <p className="text-sm text-slate-600">Scan to pay via any UPI app. (₹150 per person)</p>
                   </div>
                   <div className="space-y-2 text-left">
-                    <label className="text-sm font-medium text-cyan">UPI Transaction / UTR Number *</label>
+                    <label className="text-sm font-medium text-primary">UPI Transaction / UTR Number *</label>
                     <input 
                       required
                       type="text" 
@@ -348,18 +348,18 @@ const RegistrationForm = () => {
                       value={formData.transactionId}
                       onChange={handleChange}
                       maxLength={12}
-                      className="w-full bg-obsidian border border-cyan/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:neon-border transition-colors placeholder:text-gray-600"
+                      className="w-full bg-white border border-blue-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-slate-400 shadow-sm"
                       placeholder="e.g. 325412345678 (12 digits)"
                     />
                   </div>
                   <div className="space-y-2 text-left pt-2">
-                    <label className="text-sm font-medium text-purple">Payment Screenshot *</label>
+                    <label className="text-sm font-medium text-accent">Payment Screenshot *</label>
                     <input 
                       required
                       type="file" 
                       accept="image/*"
                       onChange={(e) => setPaymentScreenshot(e.target.files[0])}
-                      className="w-full text-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-cyan/20 file:text-cyan hover:file:bg-cyan/30 cursor-pointer"
+                      className="w-full text-slate-700 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 cursor-pointer"
                     />
                   </div>
                 </div>
@@ -370,7 +370,7 @@ const RegistrationForm = () => {
               <button 
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-cyan to-purple text-white py-4 rounded-xl font-bold text-lg hover:shadow-[0_0_20px_rgba(138,43,226,0.6)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-primary to-accent text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-1"
               >
                 {isSubmitting ? 'Submitting...' : 'Submit Registration'}
               </button>

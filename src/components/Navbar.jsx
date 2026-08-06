@@ -36,9 +36,9 @@ const Navbar = () => {
       <nav className={`mx-auto max-w-7xl rounded-full transition-all duration-300 ${isScrolled ? 'glass py-3 px-6' : 'bg-transparent py-3 px-6 border border-transparent'}`}>
         <div className="flex items-center justify-between">
           <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer" onClick={(e) => scrollToSection(e, '#home')}>
-            <Terminal className="text-cyan w-8 h-8" />
-            <span className="font-bold text-xl tracking-wider text-white">
-              ITronix <span className="text-purple">| SMIT</span>
+            <Terminal className="text-primary w-8 h-8" />
+            <span className="font-bold text-xl tracking-wider text-slate-900">
+              ITronix <span className="text-accent">| SMIT</span>
             </span>
           </div>
           
@@ -50,14 +50,14 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.href)}
-                  className="text-gray-300 hover:text-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium hover:neon-text"
+                  className="text-slate-600 hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium"
                 >
                   {link.name}
                 </a>
               ))}
               <button 
                 onClick={(e) => scrollToSection(e, '#registration')}
-                className="bg-cyan/10 border border-cyan text-cyan hover:bg-cyan hover:text-obsidian transition-all px-4 py-2 rounded-md font-bold neon-border"
+                className="bg-primary/10 border border-primary text-primary hover:bg-primary hover:text-white transition-all px-6 py-2 rounded-full font-bold shadow-sm"
               >
                 Register Now
               </button>
@@ -68,7 +68,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-cyan hover:text-white hover:bg-gray-800 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-primary hover:bg-slate-100 focus:outline-none"
             >
               {isMobileMenuOpen ? <X className="block h-6 w-6" /> : <Menu className="block h-6 w-6" />}
             </button>
@@ -77,7 +77,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div 
-        className={`md:hidden bg-obsidian/95 backdrop-blur-lg border-t border-white/10 transition-all duration-300 overflow-hidden ${
+        className={`md:hidden bg-white/95 backdrop-blur-lg border-t border-slate-200 transition-all duration-300 overflow-hidden ${
           isMobileMenuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
@@ -87,14 +87,14 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               onClick={(e) => scrollToSection(e, link.href)}
-              className="text-gray-300 hover:text-cyan block px-3 py-3 rounded-md text-base font-medium"
+              className="text-slate-600 hover:text-primary block px-3 py-3 rounded-md text-base font-medium"
             >
               {link.name}
             </a>
           ))}
           <button 
             onClick={(e) => scrollToSection(e, '#registration')}
-            className="w-full text-center mt-4 bg-cyan/10 border border-cyan text-cyan hover:bg-cyan hover:text-obsidian transition-all px-4 py-3 rounded-md font-bold"
+            className="w-full text-center mt-4 bg-primary/10 border border-primary text-primary hover:bg-primary hover:text-white transition-all px-4 py-3 rounded-md font-bold"
           >
             Register Now
           </button>
