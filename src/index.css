@@ -44,3 +44,17 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #94A3B8;
 }
+
+/* GIF-like infinite scrolling background */
+@keyframes scrollBg {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 256px 256px; /* Size of the repeating pattern */
+  }
+}
+
+.animate-bg-scroll {
+  animation: scrollBg 20s linear infinite;
+}

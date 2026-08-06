@@ -29,8 +29,8 @@ function App() {
           background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(37,99,235,0.08), transparent 80%)`
         }}
       />
-      {/* Subtle Grid Pattern overlay */}
-      <div className="pointer-events-none fixed inset-0 z-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]" />
+      {/* Subtle Grid Pattern overlay with infinite scrolling GIF-like animation */}
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.06] animate-bg-scroll" />
 
       <div className="relative z-10">
         <Navbar />
